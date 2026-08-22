@@ -22,8 +22,9 @@ export default function Home() {
         </a>
       </header>
 
-      {/* Hero Section */}
-      <section className="hero-light" id="top">
+      <main>
+        {/* Hero Section */}
+        <section className="hero-light" id="top">
         <div className="orb one"></div>
         <div className="orb two"></div>
         <div className="hero-inner">
@@ -128,6 +129,7 @@ export default function Home() {
           </iframe>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer>
