@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Eshaare Tours - Upcoming Dubai Tour Packages",
   description: "Eshaare Tours is a Dubai-based tour package company preparing to launch curated travel experiences.",
+  icons: {
+    icon: "/favicon.webp",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

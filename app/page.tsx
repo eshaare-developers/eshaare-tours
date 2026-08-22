@@ -5,12 +5,23 @@ export default function Home() {
     <div className="site-shell">
       {/* Header */}
       <header className="topbar">
-        <a href="#top" className="logo">
-          <span>E</span>
-          <b>
-            Eshaare
-            <small>TOURS · DUBAI</small>
-          </b>
+        <a href="#top" className="flex items-center h-12">
+          {/* Mobile view: show only the logo (favicon icon) */}
+          <img
+            src="/favicon.webp"
+            alt="Eshaare Tours Icon"
+            width={40}
+            height={40}
+            className="h-10 w-10 md:hidden object-contain"
+          />
+          {/* Desktop view: show full logo with cursive text */}
+          <img
+            src="/logo.webp"
+            alt="Eshaare Tours Logo"
+            width={240}
+            height={48}
+            className="hidden md:block h-12 w-auto object-contain"
+          />
         </a>
         <nav>
           <a href="#top">About</a>
@@ -134,12 +145,17 @@ export default function Home() {
 
       {/* Footer */}
       <footer>
-        <div className="logo">
-          <span>E</span>
-          <b>
-            Eshaare Tours
-            <small>Travel &amp; tour specialists · Dubai</small>
-          </b>
+        <div className="flex flex-col gap-3">
+          <img
+            src="/logo.webp"
+            alt="Eshaare Tours Logo"
+            width={200}
+            height={40}
+            className="h-10 w-auto self-start object-contain bg-[#063024] px-3 py-1.5 rounded-lg"
+          />
+          <p className="text-sm text-zinc-500 mt-1">
+            Travel &amp; tour specialists based in Dubai, UAE. Connecting dreams into destinations.
+          </p>
         </div>
         <div>
           <b>Explore</b>
