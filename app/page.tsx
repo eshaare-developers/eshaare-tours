@@ -2,40 +2,9 @@ import React from "react";
 
 export default function Home() {
   return (
-    <div className="site-shell">
-      {/* Header */}
-      <header className="topbar">
-        <a href="#top" className="flex items-center h-12">
-          {/* Mobile view: show only the logo (favicon icon) */}
-          <img
-            src="/favicon.webp"
-            alt="Eshaare Tours Icon"
-            width={40}
-            height={40}
-            className="h-10 w-10 md:hidden object-contain"
-          />
-          {/* Desktop view: show full logo with cursive text */}
-          <img
-            src="/logo.webp"
-            alt="Eshaare Tours Logo"
-            width={240}
-            height={48}
-            className="hidden md:block h-12 w-auto object-contain"
-          />
-        </a>
-        <nav>
-          <a href="#top">About</a>
-          <a href="#packages">Planned Packages</a>
-          <a href="#enquiry">Enquiry Form</a>
-        </nav>
-        <a href="#enquiry" className="pill primary small">
-          Plan My Journey
-        </a>
-      </header>
-
-      <main>
-        {/* Hero Section */}
-        <section className="hero-light" id="top">
+    <>
+      {/* Hero Section */}
+      <section className="hero-light" id="top">
         <div className="orb one"></div>
         <div className="orb two"></div>
         <div className="hero-inner">
@@ -48,7 +17,7 @@ export default function Home() {
             <em>made beautifully simple.</em>
           </h1>
           <p className="intro-text">
-            Welcome to Eshaare Tours. We are a Dubai-based tour package company preparing to launch a range of carefully curated travel experiences. Our team is currently designing unique journeys to help you explore the best of Dubai, and we look forward to welcoming you soon.
+            Welcome to Eshaare Tour. We are a Dubai-based tour package company preparing to launch a range of carefully curated travel experiences. Our team is currently designing unique journeys to help you explore the best of Dubai, and we look forward to welcoming you soon.
           </p>
           <div className="hero-ctas">
             <a href="#enquiry" className="pill primary">
@@ -133,7 +102,7 @@ export default function Home() {
             src="https://docs.google.com/forms/d/e/1FAIpQLSc0EcaYqBnvPZ24iw-d6E736syWGROtOAUbJEPrslLQ5ezHWg/viewform?embedded=true"
             width="100%"
             height="650"
-            title="Eshaare Tours Enquiry Form"
+            title="Eshaare Tour Enquiry Form"
             loading="lazy"
             style={{ border: "none", borderRadius: "18px", background: "white" }}
           >
@@ -141,58 +110,6 @@ export default function Home() {
           </iframe>
         </div>
       </section>
-      </main>
-
-      {/* Footer */}
-      <footer>
-        <div className="flex flex-col gap-3">
-          <img
-            src="/logo.webp"
-            alt="Eshaare Tours Logo"
-            width={200}
-            height={40}
-            className="h-10 w-auto self-start object-contain bg-[#063024] px-3 py-1.5 rounded-lg"
-          />
-          <p className="text-sm text-zinc-500 mt-1">
-            Travel &amp; tour specialists based in Dubai, UAE. Connecting dreams into destinations.
-          </p>
-        </div>
-        <div>
-          <b>Explore</b>
-          <a href="#top">Home</a>
-          <a href="#packages">Planned Packages</a>
-          <a href="#enquiry">Enquiry Form</a>
-        </div>
-        <div>
-          <b>Direct Contact</b>
-          <a href="tel:+971557338429">+971 55 733 8429</a>
-          <a href="mailto:info@eshaareuae.com">info@eshaareuae.com</a>
-          <span>Al Twar 5, Dubai, UAE</span>
-        </div>
-        <div>
-          <b>Follow Us</b>
-          <a
-            href="https://www.instagram.com/eshaare_tours/?utm_source=qr&r=nametag"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Instagram
-          </a>
-          <a href="https://wa.me/971557338429" target="_blank" rel="noopener noreferrer">
-            WhatsApp
-          </a>
-          <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">
-            Facebook
-          </a>
-          <a href="https://www.linkedin.com/in/eshaare-tours" target="_blank" rel="noopener noreferrer">
-            LinkedIn
-          </a>
-          <a href="https://t.me/eshaaretours" target="_blank" rel="noopener noreferrer">
-            Telegram
-          </a>
-        </div>
-        <p>© 2026 Eshaare Tours. All rights reserved.</p>
-      </footer>
-    </div>
+    </>
   );
 }
