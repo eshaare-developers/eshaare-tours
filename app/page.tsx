@@ -123,6 +123,7 @@ export default function Home() {
             width="100%"
             height="650"
             title="Eshaare Tours Enquiry Form"
+            loading="lazy"
             style={{ border: "none", borderRadius: "18px", background: "white" }}
           >
             Loading…
