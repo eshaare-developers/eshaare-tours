@@ -530,7 +530,7 @@ export default function Home() {
               </div>
               <div className="contact-card-text">
                 <p>Address</p>
-                <span>Al Twar 5, Dubai, UAE</span>
+                <span>Office 28, Room 308, 3rd Floor, Arzoo Building, M9-1, 16th Street, Al Twar 5, Dubai</span>
               </div>
             </a>
           </div>

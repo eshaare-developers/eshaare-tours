@@ -96,9 +96,8 @@ export default function PrivacyPolicy() {
             <p className="mb-3">If you have questions or concerns regarding this Privacy Policy or our data practices, please contact us:</p>
             <p className="font-semibold text-zinc-950">
               ESHAARE Tours &amp; Visas<br />
-              28th office, 308 room, 3rd Floor, Arzoo Building<br />
-              M9-1-16th street, Al Twar 5<br />
-              Dubai, United Arab Emirates<br />
+              Office 28, Room 308, 3rd Floor, Arzoo Building<br />
+              M9-1, 16th Street, Al Twar 5, Dubai, United Arab Emirates<br />
               Email: <a href="mailto:info@eshaareuae.com" style={{ color: "var(--green)", textDecoration: "underline" }}>info@eshaareuae.com</a>
             </p>
           </div>
