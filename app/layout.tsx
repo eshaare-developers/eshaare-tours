@@ -386,7 +386,13 @@ export default function RootLayout({ children }: LayoutProps) {
                     <a href="mailto:info@eshaareuae.com">info@eshaareuae.com</a>
                   </li>
                   <li>
-                    <span>Al Twar 5, Dubai, UAE</span>
+                    <a
+                      href="https://www.google.com/maps/place/25%C2%B015'51.6%22N+55%C2%B023'07.4%22E/@25.26434,55.385375,17z"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Al Twar 5, Dubai, UAE
+                    </a>
                   </li>
                   <li style={{ marginTop: "8px" }}>
                     <a
