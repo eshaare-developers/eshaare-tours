@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_AE",
-    url: "https://eshaareuae.com",
+    url: "https://www.eshaaretoursandvisa.company",
     siteName: "Eshaare Tours",
     title: "Eshaare Tours | Dubai Travel & Tour Specialists",
     description:
