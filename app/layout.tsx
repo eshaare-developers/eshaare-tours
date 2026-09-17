@@ -93,8 +93,21 @@ export default function RootLayout({ children }: LayoutProps) {
       lang="en"
       className={`${inter.variable} ${greatVibes.variable} h-full`}
     >
-      {/* Meta Pixel Code — script loads after interactive, noscript in head */}
       <head>
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PQHBK9LQ');`,
+          }}
+        />
+        {/* End Google Tag Manager */}
+        {/* Meta Pixel Code — script loads after interactive, noscript in head */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <noscript>
           <img
@@ -181,6 +194,16 @@ export default function RootLayout({ children }: LayoutProps) {
       </Script>
 
       <body className="min-h-full flex flex-col site-shell">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PQHBK9LQ"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
         {/* ── HEADER ─────────────────────────────────── */}
         <header className="topbar" role="banner">
           {/* Logo */}
