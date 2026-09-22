@@ -10,7 +10,22 @@ interface FormErrors {
   travellers?: string;
 }
 
-export default function LeadForm() {
+interface LeadFormProps {
+  variant?: "default" | "compact";
+  title?: string;
+  subtitle?: string;
+  idPrefix?: string;
+}
+
+export default function LeadForm({
+  variant = "default",
+  title,
+  subtitle,
+  idPrefix,
+}: LeadFormProps) {
+  const isCompact = variant === "compact";
+  const prefix = idPrefix || (isCompact ? "hero_" : "");
+
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
@@ -183,12 +198,20 @@ export default function LeadForm() {
     }
   };
 
+  const iframeName = `${prefix}hidden_google_form_iframe`;
+  const headerTitle = title || (isCompact ? "Plan Your Trip" : "Send Us a Message");
+  const headerSubtitle =
+    subtitle ||
+    (isCompact
+      ? "Get a fast custom quote & expert guidance."
+      : "Fill in your details below and our travel specialists will reach out with personalized guidance.");
+
   return (
-    <div className="lead-form-container">
+    <div className={`lead-form-container ${isCompact ? "compact" : ""}`}>
       {/* Hidden iframe to capture Google Form submission without redirecting */}
       <iframe
-        name="hidden_google_form_iframe"
-        id="hidden_google_form_iframe"
+        name={iframeName}
+        id={iframeName}
         style={{ display: "none" }}
         onLoad={handleIframeLoad}
       />
@@ -226,20 +249,20 @@ export default function LeadForm() {
           ref={formRef}
           action="https://docs.google.com/forms/d/e/1FAIpQLSc0EcaYqBnvPZ24iw-d6E736syWGROtOAUbJEPrslLQ5ezHWg/formResponse"
           method="POST"
-          target="hidden_google_form_iframe"
+          target={iframeName}
           onSubmit={handleSubmit}
-          className="lead-form"
+          className={`lead-form ${isCompact ? "compact" : ""}`}
           noValidate
         >
           <div className="lead-form-header">
-            <h3>Send Us a Message</h3>
-            <p>Fill in your details below and our travel specialists will reach out with personalized guidance.</p>
+            <h3>{headerTitle}</h3>
+            <p>{headerSubtitle}</p>
           </div>
 
           <div className="lead-form-grid">
             {/* Full Name */}
             <div className="lead-form-group">
-              <label htmlFor="entry_443478634">
+              <label htmlFor={`${prefix}entry_443478634`}>
                 Full Name <span className="req">*</span>
               </label>
               <div className="input-with-icon">
@@ -248,7 +271,7 @@ export default function LeadForm() {
                 </svg>
                 <input
                   type="text"
-                  id="entry_443478634"
+                  id={`${prefix}entry_443478634`}
                   name="entry.443478634"
                   value={name}
                   onChange={handleNameChange}
@@ -267,8 +290,8 @@ export default function LeadForm() {
 
             {/* Phone / WhatsApp */}
             <div className="lead-form-group">
-              <label htmlFor="entry_206130252">
-                WhatsApp / Phone Number <span className="req">*</span>
+              <label htmlFor={`${prefix}entry_206130252`}>
+                WhatsApp / Phone <span className="req">*</span>
               </label>
               <div className="input-with-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -276,7 +299,7 @@ export default function LeadForm() {
                 </svg>
                 <input
                   type="tel"
-                  id="entry_206130252"
+                  id={`${prefix}entry_206130252`}
                   name="entry.206130252"
                   value={phone}
                   onChange={handlePhoneChange}
@@ -295,14 +318,14 @@ export default function LeadForm() {
 
             {/* Email Address */}
             <div className="lead-form-group">
-              <label htmlFor="entry_2131562242">Email Address</label>
+              <label htmlFor={`${prefix}entry_2131562242`}>Email Address</label>
               <div className="input-with-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" />
                 </svg>
                 <input
                   type="email"
-                  id="entry_2131562242"
+                  id={`${prefix}entry_2131562242`}
                   name="entry.2131562242"
                   value={email}
                   onChange={handleEmailChange}
@@ -320,13 +343,13 @@ export default function LeadForm() {
 
             {/* Service / Destination Interested In */}
             <div className="lead-form-group">
-              <label htmlFor="entry_255498024">Service / Tour Interested In</label>
+              <label htmlFor={`${prefix}entry_255498024`}>Service Interested In</label>
               <div className="input-with-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
                 </svg>
                 <select
-                  id="entry_255498024"
+                  id={`${prefix}entry_255498024`}
                   name="entry.255498024"
                   value={service}
                   onChange={(e) => setService(e.target.value)}
@@ -344,14 +367,14 @@ export default function LeadForm() {
 
             {/* Preferred Travel Date */}
             <div className="lead-form-group">
-              <label htmlFor="entry_1813414917">Preferred Travel Date</label>
+              <label htmlFor={`${prefix}entry_1813414917`}>Travel Date</label>
               <div className="input-with-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
                 </svg>
                 <input
                   type="date"
-                  id="entry_1813414917"
+                  id={`${prefix}entry_1813414917`}
                   name="entry.1813414917"
                   min={minDate}
                   value={date}
@@ -369,14 +392,14 @@ export default function LeadForm() {
 
             {/* Number of Travellers */}
             <div className="lead-form-group">
-              <label htmlFor="entry_396078980">Number of Travellers</label>
+              <label htmlFor={`${prefix}entry_396078980`}>Travellers</label>
               <div className="input-with-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M17 21v-2a4 4 0 0 0-3-3.87" /><path d="M9 21v-2a4 4 0 0 1 3-3.87" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 1 0 7.75" />
                 </svg>
                 <input
                   type="number"
-                  id="entry_396078980"
+                  id={`${prefix}entry_396078980`}
                   name="entry.396078980"
                   min="1"
                   max="100"
@@ -396,14 +419,14 @@ export default function LeadForm() {
 
             {/* Additional Message / Requirements */}
             <div className="lead-form-group full-width">
-              <label htmlFor="entry_170967574">Additional Requirements / Message</label>
+              <label htmlFor={`${prefix}entry_170967574`}>Requirements / Message</label>
               <textarea
-                id="entry_170967574"
+                id={`${prefix}entry_170967574`}
                 name="entry.170967574"
-                rows={4}
+                rows={isCompact ? 2 : 4}
                 value={message}
                 onChange={handleMessageChange}
-                placeholder="Tell us about special requests, preferred times, or questions..."
+                placeholder="Tell us about special requests or questions..."
               />
             </div>
           </div>
