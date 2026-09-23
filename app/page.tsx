@@ -178,26 +178,23 @@ export default function Home() {
           NAVBAR / TOPBAR
       ══════════════════════════════════════ */}
       <header className="topbar" role="banner">
-        <a href="#top" className="flex items-center gap-3" aria-label="Eshaare Tours Home">
+        <a href="#top" className="topbar-brand" aria-label="Eshaare Tours Home">
           <Image
             src="/fox-logo.webp"
             alt="Eshaare Tours Logo"
-            width={100}
+            width={120}
             height={56}
             className="topbar-logo-img"
             priority
           />
-          <span
-            style={{
-              fontFamily: "var(--font-great-vibes), cursive",
-              fontSize: "24px",
-              fontWeight: "600",
-              color: "var(--green)",
-              lineHeight: 1,
-            }}
-          >
-            Eshaare Tours
-          </span>
+          <div className="topbar-brand-text">
+            <span className="topbar-brand-name">
+              Eshaare Tours
+            </span>
+            <span className="topbar-tagline">
+              CONNECTING DREAMS INTO DESTINATIONS
+            </span>
+          </div>
         </a>
 
         <nav aria-label="Main Navigation">

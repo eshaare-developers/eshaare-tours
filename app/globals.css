@@ -111,12 +111,43 @@ a {
   transition: box-shadow 0.3s ease;
 }
 
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
 .topbar-logo-img {
-  height: 56px !important;
+  height: 48px !important;
   width: auto !important;
-  max-height: 56px !important;
+  max-height: 48px !important;
   object-fit: contain;
   flex-shrink: 0;
+}
+
+.topbar-brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.topbar-brand-name {
+  font-family: var(--font-great-vibes), cursive;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--green);
+  line-height: 1;
+}
+
+.topbar-tagline {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-top: 3px;
+  line-height: 1;
 }
 
 .topbar nav {
@@ -126,15 +157,15 @@ a {
 }
 
 /* Hide tagline on narrow screens where hamburger is shown */
-@media (width <=600px) {
+@media (width <= 600px) {
   .topbar-tagline {
     display: none;
   }
 }
 
-@media (width <=400px) {
+@media (width <= 400px) {
   .topbar-logo-img {
-    height: 18px !important;
+    height: 28px !important;
   }
 }
 
@@ -143,7 +174,7 @@ a {
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--green);
-  padding: 5px 14px;
+  padding: 6px 16px;
   border-radius: var(--radius-pill);
   transition: background 0.2s ease, color 0.2s ease;
 }
