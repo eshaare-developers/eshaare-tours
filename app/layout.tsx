@@ -32,6 +32,7 @@ export const viewport: Viewport = {
    METADATA
 ───────────────────────────────────────────── */
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.eshaaretours.com"),
   title: "Eshaare Tours | Dubai Travel & Tour Specialists",
   description:
     "Discover personalised travel experiences with Eshaare Tours, a Dubai-based travel and tour company offering tailored itineraries, desert safaris, city tours, and hands-on support for your journey.",
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_AE",
-    url: "https://www.eshaaretoursandvisa.company",
+    url: "https://www.eshaaretours.com",
     siteName: "Eshaare Tours",
     title: "Eshaare Tours | Dubai Travel & Tour Specialists",
     description:
