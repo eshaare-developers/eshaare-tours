@@ -308,6 +308,14 @@ export default function Home() {
                   </svg>
                   WhatsApp Us
                 </a>
+                <a
+                  href="tel:+971557338429"
+                  className="pill call-btn"
+                  aria-label="Call Eshaare Tours"
+                >
+                  <IconPhone />
+                  Call Us
+                </a>
                 <a href="#tours" className="pill secondary">
                   Explore Tours <IconArrowRight />
                 </a>

@@ -356,6 +356,19 @@ a {
   box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
 }
 
+.call-btn {
+  background: var(--mid);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(8, 90, 66, 0.35);
+}
+
+.call-btn:hover {
+  background: var(--green);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(6, 48, 36, 0.45);
+}
+
 /* ─────────────────────────────────────────────
    SECTION UTILITIES
 ───────────────────────────────────────────── */
