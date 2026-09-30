@@ -152,7 +152,8 @@ export default function LeadForm({
     setErrors((prev) => ({ ...prev, [field]: err }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setTouched({ name: true, phone: true, email: true, date: true, travellers: true });
 
     const nameErr = validateName(name);
@@ -162,7 +163,6 @@ export default function LeadForm({
     const travellersErr = validateTravellers(travellers);
 
     if (nameErr || phoneErr || emailErr || dateErr || travellersErr) {
-      e.preventDefault();
       setErrors({
         name: nameErr,
         phone: phoneErr,
@@ -194,27 +194,54 @@ export default function LeadForm({
 
     setSubmitting(true);
 
-    // Fallback timer: guarantee success state within 2 seconds even if iframe onload is suppressed by browser cross-origin policy
-    if (submissionTimeoutRef.current) clearTimeout(submissionTimeoutRef.current);
-    submissionTimeoutRef.current = setTimeout(() => {
-      setSubmitting(false);
-      setSubmitted(true);
-    }, 2000);
-  };
+    try {
+      // Extract URL tracking parameters (GCLID, GBRAID, WBRAID, UTMs)
+      const urlParams = new URLSearchParams(window.location.search);
+      const gclid = urlParams.get("gclid") || "";
+      const gbraid = urlParams.get("gbraid") || "";
+      const wbraid = urlParams.get("wbraid") || "";
+      const campaign = urlParams.get("utm_campaign") || urlParams.get("campaign") || "";
+      const adgroup = urlParams.get("utm_content") || urlParams.get("adgroup") || "";
+      const keyword = urlParams.get("utm_term") || urlParams.get("keyword") || "";
 
-  const handleIframeLoad = () => {
-    if (submitting) {
-      if (submissionTimeoutRef.current) clearTimeout(submissionTimeoutRef.current);
-      setSubmitting(false);
+      const payload = {
+        name,
+        phone,
+        email,
+        service,
+        date,
+        travellers,
+        message,
+        source: "eshaaretours.com",
+        page: typeof window !== "undefined" ? window.location.href : "",
+        gclid,
+        gbraid,
+        wbraid,
+        campaign,
+        adgroup,
+        keyword,
+      };
+
+      // Send to Next.js API route (/api/lead)
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        console.error("Failed to submit lead to /api/lead");
+        setSubmitted(true);
+      }
+    } catch (err) {
+      console.error("Error submitting lead:", err);
       setSubmitted(true);
+    } finally {
+      setSubmitting(false);
     }
   };
-
-  useEffect(() => {
-    return () => {
-      if (submissionTimeoutRef.current) clearTimeout(submissionTimeoutRef.current);
-    };
-  }, []);
 
   const handleReset = () => {
     setSubmitted(false);
@@ -247,7 +274,6 @@ export default function LeadForm({
     return `https://wa.me/971557338429?text=${encodeURIComponent(messageText)}`;
   };
 
-  const iframeName = `${prefix}hidden_google_form_iframe`;
   const headerTitle = title || (isCompact ? "Plan Your Trip" : "Send Us a Message");
   const headerSubtitle =
     subtitle ||
@@ -257,14 +283,6 @@ export default function LeadForm({
 
   return (
     <div className={`lead-form-container ${isCompact ? "compact" : ""}`}>
-      {/* Hidden iframe to capture Google Form submission without redirecting */}
-      <iframe
-        name={iframeName}
-        id={iframeName}
-        style={{ display: "none" }}
-        onLoad={handleIframeLoad}
-      />
-
       {submitted ? (
         <div className="lead-form-success">
           <div className="success-icon-wrap">
@@ -306,13 +324,11 @@ export default function LeadForm({
       ) : (
         <form
           ref={formRef}
-          action="https://docs.google.com/forms/d/e/1FAIpQLSc0EcaYqBnvPZ24iw-d6E736syWGROtOAUbJEPrslLQ5ezHWg/formResponse"
-          method="POST"
-          target={iframeName}
           onSubmit={handleSubmit}
           className={`lead-form ${isCompact ? "compact" : ""}`}
           noValidate
         >
+
           <div className="lead-form-header">
             <h3>{headerTitle}</h3>
             <p>{headerSubtitle}</p>
