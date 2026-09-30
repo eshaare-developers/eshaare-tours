@@ -206,7 +206,7 @@ export default function Home() {
 
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <a
-            href="https://wa.me/971557338429"
+            href="https://wa.me/971557338429?text=Hi%20Eshaare%20Tours,%20I%20would%20like%20to%20enquire%20about%20your%20tours%20and%20travel%20services."
             target="_blank"
             rel="noopener noreferrer"
             className="pill whatsapp-btn small topbar-nav-cta"
@@ -239,7 +239,7 @@ export default function Home() {
           <a href="#contact">Contact</a>
           <div className="mobile-menu-cta">
             <a
-              href="https://wa.me/971557338429"
+              href="https://wa.me/971557338429?text=Hi%20Eshaare%20Tours,%20I%20would%20like%20to%20enquire%20about%20your%20tours%20and%20travel%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="pill whatsapp-btn"
@@ -297,7 +297,7 @@ export default function Home() {
 
               <div className="hero-ctas fade-up fade-up-delay-2">
                 <a
-                  href="https://wa.me/971557338429"
+                  href="https://wa.me/971557338429?text=Hi%20Eshaare%20Tours,%20I%20would%20like%20to%20enquire%20about%20your%20tours%20and%20travel%20services."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="pill whatsapp-btn"
@@ -417,7 +417,7 @@ export default function Home() {
                 <h3>{tour.title}</h3>
                 <p>{tour.desc}</p>
                 <a
-                  href="https://wa.me/971557338429"
+                  href={`https://wa.me/971557338429?text=Hi%20Eshaare%20Tours,%20I%20am%20interested%20in%20${encodeURIComponent(tour.title)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="tour-card-link"
@@ -514,7 +514,7 @@ export default function Home() {
 
             <div style={{ marginTop: "36px", display: "flex", gap: "12px", flexWrap: "wrap" }}>
               <a
-                href="https://wa.me/971557338429"
+                href="https://wa.me/971557338429?text=Hi%20Eshaare%20Tours,%20I%20would%20like%20to%20plan%20a%20tour%20in%20Dubai."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="pill whatsapp-btn"
@@ -548,7 +548,7 @@ export default function Home() {
 
           <div className="cta-actions">
             <a
-              href="https://wa.me/971557338429"
+              href="https://wa.me/971557338429?text=Hi%20Eshaare%20Tours,%20I%20would%20like%20to%20plan%20my%20next%20journey."
               target="_blank"
               rel="noopener noreferrer"
               className="pill whatsapp-btn"
@@ -587,7 +587,7 @@ export default function Home() {
         <div className="contact-grid">
           {/* Contact cards */}
           <div className="contact-cards">
-            <a href="https://wa.me/971557338429" target="_blank" rel="noopener noreferrer" className="contact-card" aria-label="WhatsApp Eshaare Tours">
+            <a href="https://wa.me/971557338429?text=Hi%20Eshaare%20Tours,%20I%20have%20an%20enquiry" target="_blank" rel="noopener noreferrer" className="contact-card" aria-label="WhatsApp Eshaare Tours">
               <div className="contact-card-icon" aria-hidden="true">
                 <IconWhatsApp />
               </div>

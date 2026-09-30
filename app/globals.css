@@ -369,6 +369,18 @@ a {
   box-shadow: 0 12px 32px rgba(6, 48, 36, 0.45);
 }
 
+/* Ensure inner elements in buttons don't block clicks or trigger Clarity dead clicks */
+.pill svg,
+.pill span,
+.floating-whatsapp svg,
+.sticky-mobile-bar a svg,
+.sticky-mobile-bar a span,
+.contact-card svg,
+.contact-card span,
+.contact-card p {
+  pointer-events: none;
+}
+
 /* ─────────────────────────────────────────────
    SECTION UTILITIES
 ───────────────────────────────────────────── */

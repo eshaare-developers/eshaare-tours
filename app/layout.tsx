@@ -386,7 +386,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         {/* ── FLOATING WHATSAPP (desktop) ─────────────── */}
         <a
-          href="https://wa.me/971557338429"
+          href="https://wa.me/971557338429?text=Hi%20Eshaare%20Tours,%20I%20would%20like%20to%20enquire%20about%20your%20services."
           target="_blank"
           rel="noopener noreferrer"
           className="floating-whatsapp"
@@ -423,7 +423,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             Call Us
           </a>
           <a
-            href="https://wa.me/971557338429"
+            href="https://wa.me/971557338429?text=Hi%20Eshaare%20Tours,%20I%20would%20like%20to%20enquire%20about%20your%20services."
             target="_blank"
             rel="noopener noreferrer"
             className="bar-whatsapp"
