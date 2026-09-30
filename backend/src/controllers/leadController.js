@@ -8,10 +8,13 @@ exports.submitLead = async (req, res) => {
     const firstName = nameParts[0] || '';
     const lastName = nameParts.slice(1).join(' ') || '';
 
+    // Dubai local timestamp (YYYY-MM-DD HH:mm:ss)
+    const conversionTime = new Date().toLocaleString("sv-SE", { timeZone: "Asia/Dubai" });
+
     // 2. Map data to the new Google Ads Lead Capture Template
     const sheetPayload = {
       "Lead ID": "LEAD-" + Date.now(),
-      "Conversion date/time": new Date().toISOString(),
+      "Conversion date/time": conversionTime,
       "Time zone": "Asia/Dubai",
       "Transaction ID": "",
       "Google Click ID (GCLID)": requestData.gclid || req.query?.gclid || "",
