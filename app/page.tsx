@@ -284,9 +284,8 @@ export default function Home() {
               </div>
 
               <h1 className="fade-up fade-up-delay-1">
-                Your journey,{" "}
-                <br />
-                <em>made beautifully simple.</em>
+                Personalised Dubai Tours <br />
+                <em>&amp; Tailored Travel Journeys.</em>
               </h1>
 
               <p className="hero-desc fade-up fade-up-delay-2">

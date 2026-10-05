@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.eshaaretours.com"),
   title: "Eshaare Tours | Dubai Travel & Tour Specialists",
   description:
-    "Discover personalised travel experiences with Eshaare Tours, a Dubai-based travel and tour company offering tailored itineraries, desert safaris, city tours, and hands-on support for your journey.",
+    "Discover Dubai with Eshaare Tours. Tailored travel itineraries, desert safaris, city tours, and dedicated local support. Book your UAE journey today.",
   keywords: [
     "Dubai tours",
     "UAE travel",
@@ -49,6 +49,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   icons: {
     icon: "/favicon.webp",
+    apple: "/favicon.webp",
   },
   openGraph: {
     type: "website",
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
     siteName: "Eshaare Tours",
     title: "Eshaare Tours | Dubai Travel & Tour Specialists",
     description:
-      "Personalised travel experiences from Dubai. Desert safaris, city tours, historic heritage walks, and tailored private journeys — curated with care.",
+      "Discover Dubai with Eshaare Tours. Tailored travel itineraries, desert safaris, city tours, and dedicated local support. Book your UAE journey today.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80",
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Eshaare Tours | Dubai Travel & Tour Specialists",
     description:
-      "Personalised travel experiences from Dubai. Desert safaris, city tours, and tailored private journeys.",
+      "Discover Dubai with Eshaare Tours. Tailored travel itineraries, desert safaris, city tours, and dedicated local support.",
     images: [
       "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80",
     ],
